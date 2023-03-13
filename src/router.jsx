@@ -7,6 +7,7 @@ import {Login}  from './views/login/Login';
 import {DashboardAdm}  from './views/administrador/dashboardAdm';
 import {CadastroUsuario} from './views/administrador/CadastroUsuario';
 import {CadastroStatus} from './views/administrador/CadastroStatus';
+import {EdicaoUsuario} from './views/administrador/EdicaoUsuario';
 import {EdicaoStatus} from './views/administrador/EdicaoStatus';
 import {DashboardColaborador } from './views/colaborador/dashboardColaborador';
 import {DemandasExecutadas} from './views/colaborador/DemandasExecutadas';
@@ -28,14 +29,15 @@ export const Router=()=>{
           <Route path='/administrador' element={<DashboardAdm/>}/>
           <Route path='/administrador/CadastroStatus' element={<CadastroStatus/>}/>
           <Route path='/administrador/CadastroUsuario' element={<CadastroUsuario/>}/>
-          <Route path='/administrador/EdicaoStatus' element={<EdicaoStatus/>}/>
+          <Route path='/administrador/EdicaoStatus/:id' element={<EdicaoStatus/>}/>
+          <Route path='/administrador/EdicaoUsuario/:id' element={<EdicaoUsuario/>}/>
           <Route path='/colaborador' element={<DashboardColaborador/>}/>
           <Route path='/colaborador/DemandasExecutadas' element={<DemandasExecutadas/>}/>
-          <Route path='/colaborador/EnvioDemandaPendente' element={<EnvioDemandaPendente/>}/>
+          <Route path='/colaborador/EnvioDemandaPendente/:id' element={<EnvioDemandaPendente/>}/>
           <Route path='/usuario' element={<DashboardUsuario/>}/>
           <Route path='/usuario/CadastroDemanda' element={<CadastroDemanda/>}/>
-          <Route path='/usuario/EdicaoDemanda' element={<EdicaoDemanda/>}/>
-          <Route path='/usuario/ImprimirDemanda' element={<ImprimirDemanda/>}/>
+          <Route path='/usuario/EdicaoDemanda/:id' element={<EdicaoDemanda/>}/>
+          <Route path='/usuario/ImprimirDemanda/:id' element={<ImprimirDemanda/>}/>
 
         </Routes>
         </BrowserRouter>
