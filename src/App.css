@@ -1,4 +1,8 @@
 /*configurações do css geral*/
+*{
+box-sizing: border-box;
+margin: 0;
+}
 button{
     padding: 14px 20px;
     margin: 8px 0;
@@ -15,6 +19,13 @@ button{
 button:hover{
 background: #000;
 }
+.form-justo{
+    display: inline;
+    justify-content: space-between;
+}
+.cancel{
+    background: #950;
+}
 form{
     width:50%;
     color: #2196f3;
@@ -23,3 +34,31 @@ form{
     margin-top: 50px;
     margin-bottom: 50px;
     }
+    nav{
+        background: #2196f3;
+        padding: 20px;
+        width: 100%;
+        margin:0px;
+    }
+    nav  a{
+        color: #fff;
+        text-decoration: none;
+        margin: 10px;
+    }
+    nav a:hover{
+        background: #fff;
+        color:#2196f3;
+        padding: 10px;
+    }
+    table{
+        width: 100%;
+        border: solid 1px #2196f3;;
+        padding: 10px;
+        margin: 5px;
+    }
+
+td{
+    margin: 5px;
+    border: solid 1px #2196f3;
+    padding: 10px;
+}

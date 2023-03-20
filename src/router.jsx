@@ -6,18 +6,20 @@ import {Home}  from './views/home/Home';
 import {Login}  from './views/login/Login';
 import {DashboardAdm}  from './views/administrador/dashboardAdm';
 import {CadastroUsuario} from './views/administrador/CadastroUsuario';
+import {VerColaborador} from './views/administrador/VerColaborador';
+import {CadastrarSetores} from './views/administrador/CadastrarSetores';
 import {CadastroStatus} from './views/administrador/CadastroStatus';
 import {EdicaoUsuario} from './views/administrador/EdicaoUsuario';
 import {EdicaoStatus} from './views/administrador/EdicaoStatus';
+
 import {DashboardColaborador } from './views/colaborador/dashboardColaborador';
 import {DemandasExecutadas} from './views/colaborador/DemandasExecutadas';
 import {EnvioDemandaPendente} from './views/colaborador/EnvioDemandaPendente';
+
 import {DashboardUsuario} from './views/usuario/dashboardUsuario';
 import {CadastroDemanda} from './views/usuario/CadastroDemanda';
 import {EdicaoDemanda} from './views/usuario/EdicaoDemanda';
 import {ImprimirDemanda} from './views/usuario/ImprimirDemanda';
-
-
 
 
 export const Router=()=>{
@@ -29,6 +31,9 @@ export const Router=()=>{
           <Route path='/administrador' element={<DashboardAdm/>}/>
           <Route path='/administrador/CadastroStatus' element={<CadastroStatus/>}/>
           <Route path='/administrador/CadastroUsuario' element={<CadastroUsuario/>}/>
+          <Route path='/administrador/VerColaborador' element={<VerColaborador/>}/>
+          <Route path='/administrador/CadastrarSetores' element={<CadastrarSetores/>}/>
+
           <Route path='/administrador/EdicaoStatus/:id' element={<EdicaoStatus/>}/>
           <Route path='/administrador/EdicaoUsuario/:id' element={<EdicaoUsuario/>}/>
           <Route path='/colaborador' element={<DashboardColaborador/>}/>
