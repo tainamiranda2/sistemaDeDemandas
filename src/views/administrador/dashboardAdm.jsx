@@ -1,7 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { useState } from 'react';
 export const DashboardAdm =()=>{
+  const [name,setName]=useState('pedro')
+  const [setor,setSetor]=useState('compras')
+  const [qtd,setQtd]=useState('12')
+  const [descricao,setDescricao]=useState('produto bom')
+  const [tipo,setTipo]=useState('aço')
+  const [status,setStatus]=useState('em andamento')
     return (
         <div>
 
@@ -12,10 +18,10 @@ export const DashboardAdm =()=>{
             <Link to ="/administrador/VerColaborador">Ver colabolares cadastrados</Link>
             
             <Link to ="/administrador/CadastrarSetores">Crie setores</Link>
-            <Link to ="/administrador/VerColaborador">Ver setores cadastrados</Link>
+            <Link to ="/administrador/VerSetores">Ver setores cadastrados</Link>
 
             <Link to ="/administrador/CadastroStatus">Crie status</Link>
-            <Link to ="/administrador/VerColaborador">Ver status cadastrados</Link>
+            <Link to ="/administrador/VerStatus">Ver status cadastrados</Link>
 
             </nav> 
      <p>Esta são todas as demandas pendentes</p>
@@ -38,10 +44,10 @@ export const DashboardAdm =()=>{
 <td>12</td>
 <td>Intel</td>
 <td>Recusado</td>
-<button>Executar</button>
-<Link to="/">Ver motivo</Link>
-
-</tr>
+<td>
+<button className="execute">Executar</button>
+<Link className="verMotivo" to="/administrador/VerMotivo">Ver motivo</Link>
+</td></tr>
         </table>
         </div>
     )

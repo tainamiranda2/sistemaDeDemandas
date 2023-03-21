@@ -27,7 +27,7 @@ alert("ocorreu um erro, entre em contato como suporte")
     }
 return (
 <div>
-<h1>Olá, aqui é a paǵian de login</h1>
+
 <form onSubmit={ValidarForm}>
 <Input
 text="infome seu nome"
@@ -43,18 +43,11 @@ placeholder="Digite sua senha"
 
 />
 
-<Input
-text="infome sua matricula"
-type="number"
-placeholder="Digite sua senha"
 
-/>
 <button>Entrar</button>
-<div>
-<Link to="/">Esqueceu senha</Link>
-<br></br>
-<Link to="/">Solicitar serviço</Link>
-</div>
+
+<span>Esqueceu senha <Link to="/">click aqui</Link></span>
+
 </form>
 </div>
 )

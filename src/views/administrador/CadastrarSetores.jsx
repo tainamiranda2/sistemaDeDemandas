@@ -7,6 +7,7 @@ export const CadastrarSetores =()=>{
     const history=useNavigate()
     const [name,setName]=useState('pedro')
     
+    
         const CadastroSetores=async e=>{
             e.preventDefault();
             //console.log(name)

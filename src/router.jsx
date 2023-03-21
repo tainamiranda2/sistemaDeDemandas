@@ -7,9 +7,14 @@ import {Login}  from './views/login/Login';
 import {DashboardAdm}  from './views/administrador/dashboardAdm';
 import {CadastroUsuario} from './views/administrador/CadastroUsuario';
 import {VerColaborador} from './views/administrador/VerColaborador';
-import {CadastrarSetores} from './views/administrador/CadastrarSetores';
-import {CadastroStatus} from './views/administrador/CadastroStatus';
 import {EdicaoUsuario} from './views/administrador/EdicaoUsuario';
+
+import {CadastrarSetores} from './views/administrador/CadastrarSetores';
+import {VerSetores} from './views/administrador/VerSetores';
+import {VerMotivo} from './views/administrador/VerMotivo';
+
+import {VerStatus} from './views/administrador/VerStatus';
+import {CadastroStatus} from './views/administrador/CadastroStatus';
 import {EdicaoStatus} from './views/administrador/EdicaoStatus';
 
 import {DashboardColaborador } from './views/colaborador/dashboardColaborador';
@@ -33,6 +38,9 @@ export const Router=()=>{
           <Route path='/administrador/CadastroUsuario' element={<CadastroUsuario/>}/>
           <Route path='/administrador/VerColaborador' element={<VerColaborador/>}/>
           <Route path='/administrador/CadastrarSetores' element={<CadastrarSetores/>}/>
+          <Route path='/administrador/VerSetores' element={<VerSetores/>}/>
+          <Route path='/administrador/VerMotivo' element={<VerMotivo/>}/>
+          <Route path='/administrador/VerStatus' element={<VerStatus/>}/>
 
           <Route path='/administrador/EdicaoStatus/:id' element={<EdicaoStatus/>}/>
           <Route path='/administrador/EdicaoUsuario/:id' element={<EdicaoUsuario/>}/>
