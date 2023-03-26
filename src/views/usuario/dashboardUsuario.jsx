@@ -1,42 +1,48 @@
 import React from "react";
-import Input from "../../components/input/Input";
-import Card from "../../components/card/Card";
-
-
+import { Link } from "react-router-dom";
+import { useState } from "react";
 export const DashboardUsuario=()=>{
-    const ValidarForm=async e=>{
-      e.preventDeafault();
-      console.log("Voçê clicou em enviar");
-    }
+    const [setor,setSetor]=useState('compras');
+    const [name,setName]=useState('panela');
+    const [qtd,setQtd]=useState('12');
+    const [tipo,setTipo]=useState("ferro");
+    const [status,setStatus]=useState('em andamento');
+    const [descricao,setDescricao]=useState('bacana');
     return(
-      
       <div>
-        <Card text="CadastroDemanda" to="/usuario/CadastroDemanda"/>
-        <Card text="EdicaoDemanda" to="/usuario/EdicaoDemanda/1"/>
-        <Card text="ImprimirDemanda" to="/usuario/ImprimirDemanda/1"/>
-        <h1>Olá, sua página do dashboard do usuário</h1>
-        <form onSubmit={ValidarForm}>
-                <div>
-                    <h2>Cadastrar uma demanda</h2>
-                    <Input text="Informe o setor: " type="text" name="setor" placeholder="Digite o setor" required/>
-                </div>
-                <div>
-                    <h2>Cadaste o material necessário</h2>
-                    <Input text="Informe o nome: " type="text" name="nome" placeholder="Digite o nome da demanda" required/>
-                    <Input text="Informe a quantidade: " name="quantidade" type="number" placeholder="Digite o a quantidade da demanda" required/>
-                    <Input text="Informe o tipo: " type="text" name="tipo" placeholder="Digite o tipo da demanda" required/> 
-                    
-                </div>
-                <div>
-                    <h2>Status</h2>
-                    <Input  text="Em andamento" type="radio" name="status" value="Em andamento" checked required/>
-                    <Input  text="Concluída" type="radio" name="status" value="Concluída" required/>
-                </div>
-                <button>Concluir solicitação</button>
-                
-                
-                                                                   
-        </form>
+        <nav>
+          <Link to = "/usuario">Minhas demandas</Link>
+          <Link to = "/usuario/CadastroDemanda">Criar demandas</Link>
+          <Link to = "/usuario/Perfil">Perfil</Link>
+        </nav>
+        <h1>Bem vindo ao sistema, Maria</h1>
+        <p>Todas as demandas cadastradas</p>
+
+        <table>
+          <tr>
+            <td>Setor</td>
+            <td>Nome</td>
+            <td>Qtd</td>
+            <td>Tipo</td>
+            <td>Status</td>
+            <td>Descrição</td>
+
+          </tr>
+          <tr>
+            <td>Compras</td>
+            <td>Panela</td>
+            <td>30</td>
+            <td>Ferro</td>
+            <td>Em andamento</td>
+            <td>Bacana</td>
+
+          </tr>
+          <Link className="editarDemanda" to="/usuario/EdicaoDemanda/1">Editar</Link>
+          <button className="excluirDemanda" >Excluir</button>
+          <Link className="imprimirDemanda" to="/usuario/ImprimirDemanda/1">Imprimir</Link>
+          
+        </table>
+        
       </div>
       
     )

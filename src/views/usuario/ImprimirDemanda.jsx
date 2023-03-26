@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from "../../components/input/Input";
-import Card from '../../components/card/Card';
+import { Link } from 'react-router-dom';
 
 
 export const ImprimirDemanda =()=>{
@@ -11,18 +11,26 @@ export const ImprimirDemanda =()=>{
     }
     return (
         <div>
-            <Card text="Sair" to="../../usuario"/>
-            <h1>Olá, sua página de imprimir demanda</h1>
+            <nav>
+              <Link to = "/usuario">Voltar</Link>
+             
+            </nav>
+            
             <form onSubmit={ValidarForm}>
-              <div>
+              <div className='form-corpo'>
                 <h2>Demanda impressa</h2>
-                <Input text="Informe o nome: " type="text" name="nome" placeholder="Digite o nome da demanda" required/>
-                <Input text="Informe a quantidade: " name="quantidade" type="number" placeholder="Digite o a quantidade da demanda" required/>
-                <Input text="Informe o tipo: " type="text" name="tipo" placeholder="Digite o tipo da demanda" required/>
-                <Input text="Informe o motivo da demanda: " type="text" name="motivo_da_demanda" placeholder="Digite o motivo da demanda"/> 
+                <Input text="Nome: " type="text" name="nome" placeholder="Digite o nome da demanda" required/>
+                <Input text="QTD: " name="quantidade" type="number" placeholder="Digite o a quantidade da demanda" required/>
+                <Input text="Tipo: " type="text" name="tipo" placeholder="Digite o tipo da demanda" required/>
+                
                     
               </div>
-              <button>Confirmar</button>
+              <div className='form-justo'>
+                <button>Confirmar</button>
+                <button className='cancel'>Cancelar</button>
+              </div>
+              
+
             </form>
         </div>
 
