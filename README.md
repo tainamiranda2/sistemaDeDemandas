@@ -4,7 +4,10 @@
 ### rode "npm run dev" para ver o projeto no seu localhost
 ## Projeto para a diciplina de projeto integrador
 
-## design de baixa fidelidade do projeto <a href=https://www.figma.com/file/4UhqLkG3d6X2pVzQiIdVNh/Untitled?node-id=0%3A1&t=FxCvtT3gVlNmIHoR-0>Aqui</a>
+## designer de baixa fidelidade do projeto <a href='https://www.figma.com/file/4UhqLkG3d6X2pVzQiIdVNh/Untitled?node-id=0%3A1&t=FxCvtT3gVlNmIHoR-0'>Aqui</a>
+## designer de alta fidelizade do projeto <a href='https://www.figma.com/file/RiwZHdRDWFkja1suAZRDZr/DEMANDA-DE-SERVI%C3%87OS-E-MATERIAIS?node-id=6-6&t=qET8nXZ5chtM3Xi2-0'>aqui</a>
+## termo do projeto <a href=''>aqui</a>
+## api do projeto <a href=''>aqui</a>
 
 ## Features:
 * login
