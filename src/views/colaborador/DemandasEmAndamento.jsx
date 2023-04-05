@@ -2,13 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export const DashboardColaborador =()=>{
+
+export const DemandasEmAndamento =()=>{
+  
   const [setor,setSetor]=useState('compras');
   const [name,setName]=useState('panela');
   const [qtd,setQtd]=useState('12');
   const [tipo,setTipo]=useState("ferro");
   const [descricao,setDescricao]=useState('bonito');
-  const [status,setStatus]=useState('finalizadas')
+  const [status,setStatus]=useState('em andamento')
     return(
         <div>
           <nav>
@@ -17,7 +19,7 @@ export const DashboardColaborador =()=>{
             <Link to = "/colaborador/Perfil">Perfil</Link>
           </nav>
           <h1>Bem vindo ao sistema, Carlos</h1>
-          <p>Lista das demandas necessárias</p>
+          <p>Lista das demandas em andamento</p>
 
           <table>
             <tr>
@@ -35,14 +37,13 @@ export const DashboardColaborador =()=>{
               <td>12</td>
               <td>Ferro</td>
               <td>Bonito</td>
-              <td>Finalizadas</td>
+              <td>Em andamento</td>
               <td>
                 <button className="executarDemanda" >Executar</button>
                 <Link className="enviarAoAdm" to="/colaborador/MotivoColaboradorDemanda">Enviar ao ADM</Link>
               </td>
 
             </tr>
-            
             
             
             <tr>
@@ -51,14 +52,14 @@ export const DashboardColaborador =()=>{
               <td>10</td>
               <td>LED</td>
               <td>4K</td>
-              <td>Finalizadas</td>
+              <td>Em andamento</td>
               <td>
                 <button className="executarDemanda" >Executar</button>
                 <Link className="enviarAoAdm" to="/colaborador/MotivoColaboradorDemanda">Enviar ao ADM</Link>
               </td>
 
             </tr>
-           
+            
           
         </table>
         </div>
