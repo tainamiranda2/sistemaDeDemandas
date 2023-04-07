@@ -18,6 +18,10 @@ import {CadastroStatus} from './views/administrador/CadastroStatus';
 import {EdicaoStatus} from './views/administrador/EdicaoStatus';
 
 import {DashboardColaborador } from './views/colaborador/dashboardColaborador';
+import {DemandasEmAndamento} from './views/colaborador/DemandasEmAndamento';
+import {PerfilColaborador} from './views/colaborador/PerfilColaborador';
+import { MotivoColaboradorDemanda } from './views/colaborador/MotivoColaboradorDemanda';
+
 import {DemandasExecutadas} from './views/colaborador/DemandasExecutadas';
 import {EnvioDemandaPendente} from './views/colaborador/EnvioDemandaPendente';
 
@@ -46,6 +50,9 @@ export const Router=()=>{
           <Route path='/administrador/EdicaoStatus/:id' element={<EdicaoStatus/>}/>
           <Route path='/administrador/EdicaoUsuario/:id' element={<EdicaoUsuario/>}/>
           <Route path='/colaborador' element={<DashboardColaborador/>}/>
+          <Route path='/colaborador/DemandasEmAndamento' element={<DemandasEmAndamento/>}/>
+          <Route path='/colaborador/Perfil' element={<PerfilColaborador/>}/>
+          <Route path='/colaborador/MotivocolaboradorDemanda' element={<MotivoColaboradorDemanda/>}/>
           <Route path='/colaborador/DemandasExecutadas' element={<DemandasExecutadas/>}/>
           <Route path='/colaborador/EnvioDemandaPendente/:id' element={<EnvioDemandaPendente/>}/>
           <Route path='/usuario' element={<DashboardUsuario/>}/>
@@ -53,6 +60,8 @@ export const Router=()=>{
           <Route path='/usuario/Perfil' element={<Perfil/>}/>
           <Route path='/usuario/EdicaoDemanda/:id' element={<EdicaoDemanda/>}/>
           <Route path='/usuario/ImprimirDemanda/:id' element={<ImprimirDemanda/>}/>
+          
+          
 
         </Routes>
         </BrowserRouter>
