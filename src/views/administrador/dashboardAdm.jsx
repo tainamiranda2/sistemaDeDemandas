@@ -50,23 +50,21 @@ getDemandas()
    <td>Descrição</td>
    <td>Qtd</td>
    <td>Tipo</td>
-   <td>Status</td>
    <td>Função</td>
    </tr>
    <>
 {demandas.map((demanda)=>(
 
-   <tr>
+   <tr key={demanda.id}>
 
    <td>{demanda.setor}</td>
    <td>{demanda.nome}</td>
    <td>{demanda.descricao}</td>
    <td>{demanda.qtd}</td>
    <td>{demanda.tipo}</td>
-   <td>{demanda.status}</td>
    <td>
    <button className="execute">Executar</button>
-   <Link className="verMotivo" to="/administrador/VerMotivo">Ver motivo</Link>
+   <Link className="verMotivo" to={`/administrador/VerMotivo/{demanda.id}`}>Ver motivo</Link>
    </td>
    </tr>
 ))

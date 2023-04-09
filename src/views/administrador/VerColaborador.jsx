@@ -1,28 +1,64 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { useState } from 'react';
+import axios  from 'axios'
+import { useState, useEffect} from 'react';
 export const VerColaborador =()=>{
+    const [usuarios,setUsuarios]=useState([])
+
+    //funcao para ver todas as demandas pendentes
+    const getColaborador =async()=>{
+      try{
+        const response=await axios.get('http://localhost:81/api-demanda/usuarios/')
+       // console.log("oi",response)
+        const data=response.data;
+        setUsuarios(data)
+      }catch(error){
+  console.log(error)
+      }
+    }
+  
+    useEffect(()=>{
+  getColaborador()
+    },[])
     return (
         <div>
-            <h1>Veja todos os usuários cadastrados por voce</h1>
-            <table>
-          <tr>
-<td>Setor</td>
+         
+
+        {usuarios.length===0 ? (
+  <h2>Não há nenhum colaborador cadastrado</h2>
+   ):(
+    <div>
+    <p>Esta são todas os usuarios </p>
+   
+    <table>
+      <tr>
+      <td>Setor</td>
 <td>Nome</td>
 <td>Email</td>
 <td>Papel</td>
+   </tr>
+   <>
+{usuarios.map((usuario)=>(
 
-</tr>
-<tr>
-<td>Compras</td>
-<td>Carlos augusto</td>
-<td>calos@gmail.com</td>
+   <tr key={usuario.id}>
 
-<td>
-<button>Excluir</button>
-<Link className="verMotivo" to="/VerMotivo">Editar</Link>
-</td></tr>
+   <td>{usuario.nome}</td>
+   <td>{usuario.papel}</td>
+   <td>{usuario.email}</td>
+
+   <td>
+   <button>Excluir</button>
+<Link className="verMotivo" to={`/EdicaoUsuario/{usuario.id}`}>Editar</Link>
+   </td>
+   </tr>
+))
+}
+</>
+    
         </table>
+    </div>
+  )}
+    
         </div>
 
     )
