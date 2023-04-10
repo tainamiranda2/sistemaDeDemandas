@@ -26,6 +26,7 @@ export const DashboardUsuario=()=>{
             <td>Tipo</td>
             <td>Status</td>
             <td>Descrição</td>
+            <td>Função</td>
 
           </tr>
           <tr>
@@ -36,12 +37,13 @@ export const DashboardUsuario=()=>{
             <td>Em andamento</td>
             <td>Bacana</td>
 
-          </tr>
+          <td>
           <Link className="editarDemanda" to="/usuario/EdicaoDemanda/1">Editar</Link>
           <button className="excluirDemanda" >Excluir</button>
           <Link className="imprimirDemanda" to="/usuario/ImprimirDemanda/1">Imprimir</Link>
-          
-        </table>
+          </td>
+          </tr>       
+           </table>
         
       </div>
       

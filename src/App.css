@@ -4,7 +4,7 @@
     box-sizing: border-box;
 margin: 0px;
 }
-h1, h3, p{
+h1,h3, h3, p{
 color:#2196f3;
 text-align: center;
 }
@@ -60,6 +60,15 @@ form{
         border: solid 1px #2196f3;;
         padding: 10px;
         margin: 5px;
+        border-bottom:none;
+        border-right:none;
+        border-left:none;
+
+    }
+    tr td{
+        border-bottom:none;
+        border-right:none;
+        border-left:none;
     }
 
 td{
@@ -75,11 +84,27 @@ td{
     margin: 2px;
     color:#fff;
 }
- .execute{
+ .execute, .excluirDemanda{
 background: red;
 margin: 2px;
   padding: 10px;
     width: 50%;
+}
+.editarDemanda{
+    background: #2196f3;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+ margin: 2px;
+ color:#fff;
+}
+.imprimirDemanda{
+    background: #000;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+ margin: 2px;
+ color:#fff;
 }
 /*css da home*/
 a{
@@ -91,4 +116,9 @@ ul ol{
     margin: 10px;
     text-align: center;
     color: #2196f3;
+}
+img{
+display:block;
+margin:auto;
+width:50%;
 }
