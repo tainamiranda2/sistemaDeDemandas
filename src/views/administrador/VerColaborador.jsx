@@ -5,7 +5,7 @@ import { useState, useEffect} from 'react';
 export const VerColaborador =()=>{
     const [usuarios,setUsuarios]=useState([])
 
-    //funcao para ver todas as demandas pendentes
+    //funcao para ver todas os usuarios
     const getColaborador =async()=>{
       try{
         const response=await axios.get('http://localhost:81/api-demanda/usuarios/')
@@ -16,7 +16,11 @@ export const VerColaborador =()=>{
   console.log(error)
       }
     }
-  
+  //funcao par deletar usuario
+  async function deleteUsuario(usuario){
+  const res=await axios.delete(`http://localhost:81/api-demanda/usuarios/${usuario.id}`)
+  }
+
     useEffect(()=>{
   getColaborador()
     },[])
@@ -47,7 +51,7 @@ export const VerColaborador =()=>{
    <td>{usuario.email}</td>
 
    <td>
-   <button>Excluir</button>
+   <button onClick={()=>deleteUsuario(usuario)}>Excluir</button>
 <Link className="verMotivo" to={`/EdicaoUsuario/{usuario.id}`}>Editar</Link>
    </td>
    </tr>
