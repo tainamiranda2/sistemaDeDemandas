@@ -15,7 +15,7 @@ const history=useNavigate()
        // console.log(name)
         //console.log(typeof(senha))
 //verificando quem são os usuarios
-     if(name==='carlos'){
+     if(name==='carlos' && senha==="1568"){
         history("/colaborador");
     }else if(name==='carol' && senha ==="1234"){
         history("/usuario");

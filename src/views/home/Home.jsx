@@ -12,8 +12,10 @@ export const Home =()=>{
 
            </nav>
          <h1>Sistemas de demandas</h1>
+         <form>
          <img src={home}/>
      <button>Solicitar  serviço</button>
+     </form>
         </div>
     )
 }

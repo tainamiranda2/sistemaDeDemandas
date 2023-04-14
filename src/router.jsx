@@ -4,6 +4,8 @@ import {BrowserRouter,Routes, Route} from 'react-router-dom';
 
 import {Home}  from './views/home/Home';
 import {Login}  from './views/login/Login';
+import {notFound}  from './views/notfound/notFound';
+
 import {DashboardAdm}  from './views/administrador/dashboardAdm';
 import {CadastroUsuario} from './views/administrador/CadastroUsuario';
 import {VerColaborador} from './views/administrador/VerColaborador';
@@ -40,6 +42,7 @@ export const Router=()=>{
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='*' element={<notFound/>}/>
           <Route path='/administrador' element={<DashboardAdm/>}/>
           <Route path='/administrador/CadastroStatus' element={<CadastroStatus/>}/>
           <Route path='/administrador/CadastroUsuario' element={<CadastroUsuario/>}/>
