@@ -30,11 +30,13 @@ import {CadastroDemanda} from './views/usuario/CadastroDemanda';
 import {Perfil} from "./views/usuario/Perfil";
 import {EdicaoDemanda} from './views/usuario/EdicaoDemanda';
 import {ImprimirDemanda} from './views/usuario/ImprimirDemanda';
+import { Navbar } from './components/navbar/Navbar';
 
 
 export const Router=()=>{
     return(
         <BrowserRouter>
+        <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>

@@ -38,23 +38,6 @@ form{
     margin-top: 50px;
     margin-bottom: 50px;
     }
-    nav{
-        background: #2196f3;
-        padding: 10px;
-
-    }
-    nav  a{
-        color: #fff;
-        text-decoration: none;
-        margin: 10px;
- 
-   
-    }
-    nav a:hover{
-        background: #2196f3;
-        color:#fff;
-        padding: 10px;
-    }
     table{
         width: 100%;
         border: solid 1px #2196f3;;

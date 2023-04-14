@@ -1,0 +1,24 @@
+nav{
+    background: #2196f3;
+    padding: 10px;
+
+}
+nav  a{
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+
+
+}
+nav a:hover{
+    background: #2196f3;
+    color:#fff;
+    padding: 10px;
+}
+
+nav img{
+    padding: 0;
+    margin: 0;
+    width: 5%;
+    float: left;
+}
