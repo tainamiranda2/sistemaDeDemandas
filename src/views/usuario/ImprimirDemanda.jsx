@@ -1,38 +1,70 @@
-import React from 'react';
-import Input from "../../components/input/Input";
-import { Link } from 'react-router-dom';
+import React from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 
-export const ImprimirDemanda =()=>{
-    
-    const ValidarForm=async e=>{
-        e.preventDeafault();
-        console.log("Voçê clicou em enviar");
+
+export const ImprimirDemanda = () => {
+  const [demandas, setDemandas] = useState([])
+
+  //funcao para ver todas as demandas que vai imprimir
+  const getDemandas = async () => {
+    try {
+      const response = await axios.get('http://localhost:81/api-demanda/demandas/')
+      // console.log("oi",response)
+      const data = response.data;
+      setDemandas(data)
+    } catch (error) {
+      console.log(error)
     }
-    return (
-        <div>
-            <nav>
-              <Link to = "/usuario">Voltar</Link>
-             
-            </nav>
+  }
+
+  useEffect(() => {
+    getDemandas()
+  }, [])
+  return (
+    <div>
+      <nav>
+        <Link to="#" onClick={() => window.history.back()}>Voltar</Link>
+
+      </nav>
+
+      <div>
+        <h1>Demanda imprensa</h1>
+
+
+        <table>
+          <tr>
+            <td>Nome</td>
+            <td>Qtd</td>
+            <td>Tipo</td>
+            <td>Descrição</td>
             
-            <form onSubmit={ValidarForm}>
-              <div className='form-corpo'>
-                <h2>Demanda impressa</h2>
-                <Input text="Nome: " type="text" name="nome" placeholder="Digite o nome da demanda" required/>
-                <Input text="QTD: " name="quantidade" type="number" placeholder="Digite o a quantidade da demanda" required/>
-                <Input text="Tipo: " type="text" name="tipo" placeholder="Digite o tipo da demanda" required/>
-                
-                    
-              </div>
-              <div className='form-justo'>
-                <button>Confirmar</button>
-                <button className='cancel'>Cancelar</button>
-              </div>
-              
+          </tr>
+          <>
+            {demandas.map((demanda) => (
 
-            </form>
-        </div>
+              <tr key={demanda.id}>
 
-    )
+                <td>{demanda.nome}</td>
+                <td>{demanda.qtd}</td>
+                <td>{demanda.tipo}</td>
+                <td>{demanda.descricao}</td>
+              </tr>
+            ))
+            }
+          </>
+          <tr>
+            <td>
+              <button>Confirmar</button>
+              <button className='cancel'>Cancelar</button>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+
+  )
 }
