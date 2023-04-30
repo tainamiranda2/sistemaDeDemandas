@@ -12,6 +12,11 @@ span{
     text-align: center;
     margin: 10px;
 }
+.funcao{
+    padding: 14px;
+    
+}
+
 button{
     padding: 14px;
     margin: 2px ;
@@ -67,7 +72,7 @@ td{
     margin: 2px;
     color:#fff;
 }
- .execute, .excluirDemanda{
+ button .execute, .excluirDemanda{
 background: red;
 margin: 2px;
   padding: 10px;

@@ -7,26 +7,31 @@ import { useState, useEffect } from 'react';
 
 export const CadastroDemanda = () => {
 
-    const [name, setName] = useState('')
+    const [nome_demanda, setNomeDemanda] = useState('')
     const [qtd, setQtd] = useState('')
+    const [setor_id] = useState('1')
+    const [status_id] = useState('1')
     const [tipo, setTipo] = useState('')
     const [descricao, setDescricao] = useState('')
+    const [usuario_id]=useState('3')
 
-
-    async function createDemanda() {
+    const createDemanda= async(e) =>{
         e.preventDefault();
+      let mudarStatus=parseInt(status_id)
+        let mudarSetor=parseInt(setor_id)
+     let   mudarUsuario=parseInt(usuario_id)
         //console.log(name)
-        const res = await axios.post("http://localhost:81/api-demanda/demandas/", {
-            name: name,
+        const res = await axios.post("http://localhost:81/api-demanda/demandas/add/", {
+            nome_demanda: nome_demanda,
             qtd: qtd,
             tipo: tipo,
             descricao: descricao,
-            demanda_id: demanda_id,
-
+            status_id:mudarStatus,
+            setor_id:mudarSetor,
+            usuario_id:  mudarUsuario
 
         })
-
-
+        console.log(res)
     }
     return (
         <div>
@@ -41,10 +46,37 @@ export const CadastroDemanda = () => {
             <h1>Bem vindo ao sistema, Maria</h1>
             <form onSubmit={createDemanda}>
                 <h2>Cadastrar uma demanda</h2>
-                <Input text="Nome: " type="text" name="nome" placeholder="Digite o nome da demanda" required />
-                <Input text="QTD: " name="qtd" type="number" placeholder="Digite o a quantidade da demanda" required />
-                <Input text="Tipo: " type="text" name="tipo" placeholder="Digite o tipo da demanda" required />
-                <Input text="Descrição: " type="text" name="descricao" placeholder="Digite a digite" required />
+                <Input text="Nome: " 
+                type="text"
+                  placeholder="Digite o nome da demanda"
+                  value={nome_demanda}
+                  name={nome_demanda}
+                  onChange={(e)=>setNomeDemanda(e.target.value)}
+                   required />
+
+                <Input
+                 text="QTD: "
+            value={qtd}
+            name={qtd}
+            onChange={(e)=>setQtd(e.target.value)}
+                 type="number" 
+                 placeholder="Digite o a quantidade da demanda" 
+                 required />
+
+                <Input text="Tipo: " 
+                type="text"
+                value={tipo}
+                name={tipo}
+                onChange={(e)=>setTipo(e.target.value)}
+                 placeholder="Digite o tipo da demanda"
+                  required />
+
+                <Input text="Descrição: " 
+                type="text" 
+                value={descricao}
+                name={descricao}
+                onChange={(e)=>setDescricao(e.target.value)}
+                placeholder="Digite a digite" required />
                 
                 <button>Confimar solicitação</button>
 

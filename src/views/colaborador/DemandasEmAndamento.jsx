@@ -38,28 +38,31 @@ export const DemandasEmAndamento = () => {
 
           <table>
             <tr>
-              <td>Setor</td>
+          
               <td>Nome</td>
               <td>Qtd</td>
               <td>Tipo</td>
               <td>Descrição</td>
-              <td>Status</td>
+            
               <td>Função</td>
             </tr>
             <>
               {demandas.map((demanda) => (
 
-                <tr key={demanda.id}>
-
-                  <td>{demanda.setor}</td>
-                  <td>{demanda.nome}</td>
+                <tr key={demanda.id}>        
+                  <td>{demanda.nome_demanda}</td>
                   <td>{demanda.qtd}</td>
                   <td>{demanda.tipo}</td>
                   <td>{demanda.descricao}</td>
-                  <td>{demanda.status}</td>
+               
                   <td>
-                    <button className="executarDemanda" >Executar</button>
-                    <Link className="enviarAoAdm" to="/colaborador/MotivoColaboradorDemanda">Enviar ao ADM</Link>
+                    <button className="executarDemanda" >
+                      Executar
+                      </button>
+                    <Link className="enviarAoAdm" 
+                    to={`/colaborador/MotivoColaboradorDemanda/${demanda.id}`}>
+                      Enviaraa ao ADM
+                      </Link>
                   </td>
                 </tr>
               ))

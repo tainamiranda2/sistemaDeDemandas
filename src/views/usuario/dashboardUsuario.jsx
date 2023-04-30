@@ -1,29 +1,35 @@
 import React from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import {BsPencil,BsFillTrashFill } from 'react-icons/bs'
 export const DashboardUsuario = () => {
   const [demandas, setDemandas] = useState([])
 
   //funcao para ver todas as demandas cadastradas
-  const getDemandas = async () => {
-    try {
-      const response = await axios.get('http://localhost:81/api-demanda/demandas/')
-      // console.log("oi",response)
-      const data = response.data;
+  const getDemandas =async()=>{
+    try{
+      const response=await axios.get('http://localhost:81/api-demanda/demandas/')
+     // console.log("oi",response)
+      const data=response.data;
       setDemandas(data)
-    } catch (error) {
-      console.log(error)
+    }catch(error){
+console.log(error)
     }
   }
-  //funcao par deletar demanda
-  async function deleteDemanda(demanda) {
-    const res = await axios.delete(`http://localhost:81/api-demanda/demandas/${demanda.id}`)
+
+  
+  
+  async function deleteDemanda(id) {
+    const res = await axios.delete(`http://localhost:81/api-demanda/demandas/delete/${id}`)
+ console.log(id)
   }
 
-  useEffect(() => {
+  useEffect(()=>{
     getDemandas()
-  }, [])
+      },[])
+      
   return (
     <div>
       <nav>
@@ -36,17 +42,17 @@ export const DashboardUsuario = () => {
         <h2>Não há nenhuma demanda cadastrada</h2>
       ) : (
         <div>
-          <p>Esta são todas as demandas cadastradas</p>
+          <p>Esta são todas as demandaas cadastradas</p>
 
 
           <table>
             <tr>
-              <td>Setor</td>
+           
               <td>Nome</td>
               <td>Qtd</td>
               <td>Tipo</td>
               <td>Descrição</td>
-              <td>Status</td>
+             
               <td>Função</td>
             </tr>
             <>
@@ -54,16 +60,21 @@ export const DashboardUsuario = () => {
 
                 <tr key={demanda.id}>
 
-                  <td>{demanda.setor}</td>
-                  <td>{demanda.nome}</td>
+                  <td>{demanda.nome_demanda}</td>
                   <td>{demanda.qtd}</td>
                   <td>{demanda.tipo}</td>
                   <td>{demanda.descricao}</td>
-                  <td>{demanda.status}</td>
+            
                   <td>
-                    <Link className="editarDemanda" to={`/EdicaoDemanda/{demanda.id}`}>Editar</Link>
-                    <button onClick={()=>deleteDemanda(demanda)}>Excluir</button>
-                    <Link className="imprimirDemanda" to={`/ImprimirDemanda/{demanda.id}`}>Imprimir</Link>
+                  
+                    <Link  className="editarDemanda" to={`/usuario/EdicaoDemanda/${demanda.id}`}>
+                      <BsPencil/>
+                    </Link>
+                    
+                    <button  className="excluirDemanda" onClick={()=>deleteDemanda(demanda.id)}>
+                     <BsFillTrashFill />
+                      </button>
+                   
                   </td>
                 </tr>
               ))

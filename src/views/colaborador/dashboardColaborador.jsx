@@ -10,7 +10,7 @@ export const DashboardColaborador = () => {
   const getDemandas = async () => {
     try {
       const response = await axios.get('http://localhost:81/api-demanda/demandas/')
-      // console.log("oi",response)
+      console.log("oi",response)
       const data = response.data;
       setDemandas(data)
     } catch (error) {
@@ -38,29 +38,25 @@ export const DashboardColaborador = () => {
 
           <table>
             <tr>
-              <td>Setor</td>
+            
               <td>Nome</td>
               <td>Qtd</td>
               <td>Tipo</td>
               <td>Descrição</td>
-              <td>Status</td>
-              <td>Função</td>
+          
             </tr>
             <>
               {demandas.map((demanda) => (
 
                 <tr key={demanda.id}>
 
-                  <td>{demanda.setor}</td>
-                  <td>{demanda.nome}</td>
+                  
+                  <td>{demanda.nome_demanda}</td>
                   <td>{demanda.qtd}</td>
                   <td>{demanda.tipo}</td>
                   <td>{demanda.descricao}</td>
-                  <td>{demanda.status}</td>
-                  <td>
-                    <button className="executarDemanda" >Executar</button>
-                    <Link className="enviarAoAdm" to="/colaborador/MotivoColaboradorDemanda">Enviar ao ADM</Link>
-                  </td>
+               
+                
                 </tr>
               ))
               }

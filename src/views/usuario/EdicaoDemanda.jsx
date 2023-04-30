@@ -37,7 +37,7 @@ export const EdicaoDemanda = () => {
 
             <h1>Bem vindo ao sistema, Maria</h1>
             <form onSubmit={EditeDemanda}>
-                <h2>Cadastrar uma demanda</h2>
+                <h2>Edite a demanda</h2>
                 <Input text="Nome: " type="text" name="nome" placeholder="Digite o nome da demanda" required />
                 <Input text="QTD: " name="qtd" type="number" placeholder="Digite o a quantidade da demanda" required />
                 <Input text="Tipo: " type="text" name="tipo" placeholder="Digite o tipo da demanda" required />

@@ -42,7 +42,8 @@ export const Router=()=>{
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>
-          <Route path='*' element={<notFound/>}/>
+          <Route path='/*' element={<notFound/>}/>
+
           <Route path='/administrador' element={<DashboardAdm/>}/>
           <Route path='/administrador/CadastroStatus' element={<CadastroStatus/>}/>
           <Route path='/administrador/CadastroUsuario' element={<CadastroUsuario/>}/>
@@ -51,15 +52,16 @@ export const Router=()=>{
           <Route path='/administrador/VerSetores' element={<VerSetores/>}/>
           <Route path='/administrador/VerMotivo' element={<VerMotivo/>}/>
           <Route path='/administrador/VerStatus' element={<VerStatus/>}/>
-
           <Route path='/administrador/EdicaoStatus/:id' element={<EdicaoStatus/>}/>
           <Route path='/administrador/EdicaoUsuario/:id' element={<EdicaoUsuario/>}/>
+         
           <Route path='/colaborador' element={<DashboardColaborador/>}/>
           <Route path='/colaborador/DemandasEmAndamento' element={<DemandasEmAndamento/>}/>
           <Route path='/colaborador/Perfil' element={<PerfilColaborador/>}/>
-          <Route path='/colaborador/MotivocolaboradorDemanda' element={<MotivoColaboradorDemanda/>}/>
+          <Route path='/colaborador/MotivocolaboradorDemanda/:id' element={<MotivoColaboradorDemanda/>}/>
           <Route path='/colaborador/DemandasExecutadas' element={<DemandasExecutadas/>}/>
           <Route path='/colaborador/EnvioDemandaPendente/:id' element={<EnvioDemandaPendente/>}/>
+         
           <Route path='/usuario' element={<DashboardUsuario/>}/>
           <Route path='/usuario/CadastroDemanda' element={<CadastroDemanda/>}/>
           <Route path='/usuario/Perfil' element={<Perfil/>}/>
