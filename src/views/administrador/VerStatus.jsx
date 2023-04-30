@@ -1,24 +1,66 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import {BsPencil,BsFillTrashFill } from 'react-icons/bs'
+import axios  from 'axios'
+import { useState, useEffect} from 'react';
 
 export const VerStatus =()=>{
+    const [status,setStatus]=useState([])
+    //funcao para ver todas os setores
+    const getStatus =async()=>{
+      try{
+        const response=await axios.get('http://localhost:81/api-demanda/status/')
+       // console.log("oi",response)
+        const data=response.data;
+        setStatus(data)
+      }catch(error){
+  console.log(error)
+      }
+    }
+  
+    useEffect(()=>{
+        getStatus()
+    },[])
     return (
-        <div>
-            <h1>Veja todos os status cadastrados</h1>
-            <table>
-            <tr>
-                <td>Status</td>
-                 <td>Funções</td>
-            </tr>
-            <tr>
-                <td>Em andamento</td>
-                <td>
-<button className='execute'>Excluir</button>
-<Link className="verMotivo" to="/administrador/EditarStatus/{id}">Ver motivo</Link>
-</td>
-            </tr>
-            </table>
-        </div>
+        <>
+        {status.length===0 ? (
+            <h2>Não há nenhum status criado</h2>
+             ):(
+              <div>
+              <p>Esta são todas os status </p>
+             
+                     
+              <table>
+                <tr>
+          
+             <td>Nome</td>
+           
+             <td>Função</td>
+             </tr>
+             <>
+          {status.map((statusS)=>(
+          
+             <tr key={statusS.id}>
+          
+             <td>{statusS.nome_status}</td>
+            
+             <td>
+             <button className="execute">
+              <BsFillTrashFill/>
+              </button>
+             <Link className="verMotivo" to={`/administrador/EdicaoStatus/${statusS.id}`}>
+<BsPencil/>
+             </Link>
+             </td>
+             </tr>
+          ))
+          }
+          </>
+              
+                  </table>
+              </div>
+            )}
+</>
 
     )
 }

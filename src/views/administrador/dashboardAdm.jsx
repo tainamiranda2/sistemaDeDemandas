@@ -2,9 +2,10 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
+
+import { BsCheck} from 'react-icons/bs'
 export const DashboardAdm =()=>{
   const [demandas,setDemandas]=useState([])
-
   //funcao para ver todas as demandas pendentes
   const getDemandas =async()=>{
     try{
@@ -45,7 +46,7 @@ getDemandas()
            
     <table>
       <tr>
-   <td>Setor</td>
+
    <td>Nome</td>
    <td>Descrição</td>
    <td>Qtd</td>
@@ -57,13 +58,14 @@ getDemandas()
 
    <tr key={demanda.id}>
 
-   <td>{demanda.setor}</td>
-   <td>{demanda.nome}</td>
+   <td>{demanda.nome_demanda}</td>
    <td>{demanda.descricao}</td>
    <td>{demanda.qtd}</td>
    <td>{demanda.tipo}</td>
    <td>
-   <button className="execute">Executar</button>
+   <button className="execute">
+    <BsCheck/>
+    </button>
    <Link className="verMotivo" to={`/administrador/VerMotivo/{demanda.id}`}>Ver motivo</Link>
    </td>
    </tr>

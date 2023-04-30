@@ -2,13 +2,15 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import axios  from 'axios'
 import { useState, useEffect} from 'react';
+
+import {BsPencil,BsFillTrashFill } from 'react-icons/bs'
 export const VerColaborador =()=>{
     const [usuarios,setUsuarios]=useState([])
 
     //funcao para ver todas os usuarios
     const getColaborador =async()=>{
       try{
-        const response=await axios.get('http://localhost:81/api-demanda/usuarios/')
+        const response=await axios.get('http://localhost:81/api-demanda/usuario/')
        // console.log("oi",response)
         const data=response.data;
         setUsuarios(data)
@@ -18,7 +20,7 @@ export const VerColaborador =()=>{
     }
   //funcao par deletar usuario
   async function deleteUsuario(usuario){
-  const res=await axios.delete(`http://localhost:81/api-demanda/usuarios/${usuario.id}`)
+  const res=await axios.delete(`http://localhost:81/api-demanda/usuario/delete/${usuario.id}`)
   }
 
     useEffect(()=>{
@@ -36,9 +38,10 @@ export const VerColaborador =()=>{
    
     <table>
       <tr>
-      <td>Setor</td>
+   
 <td>Nome</td>
 <td>Email</td>
+<td>telefone</td>
 <td>Papel</td>
    </tr>
    <>
@@ -47,12 +50,17 @@ export const VerColaborador =()=>{
    <tr key={usuario.id}>
 
    <td>{usuario.nome}</td>
-   <td>{usuario.papel}</td>
-   <td>{usuario.email}</td>
 
+   <td>{usuario.email}</td>
+   <td>{usuario.telefone}</td>
+   <td>{usuario.papel_id}</td>
    <td>
-   <button onClick={()=>deleteUsuario(usuario)}>Excluir</button>
-<Link className="verMotivo" to={`/EdicaoUsuario/{usuario.id}`}>Editar</Link>
+   <button onClick={()=>deleteUsuario(usuario.id)}>
+   <BsFillTrashFill />
+   </button>
+<Link className="verMotivo" to={`/adminstrador/EdicaoUsuario/${usuario.id}`}>
+<BsPencil/>
+</Link>
    </td>
    </tr>
 ))

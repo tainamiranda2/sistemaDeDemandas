@@ -1,24 +1,65 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import {BsPencil,BsFillTrashFill } from 'react-icons/bs'
+import axios  from 'axios'
+import { useState, useEffect} from 'react';
 
 export const VerSetores =()=>{
+    const [setor,setSetor]=useState([])
+    //funcao para ver todas os setores
+    const getSetores =async()=>{
+      try{
+        const response=await axios.get('http://localhost:81/api-demanda/setor/')
+       // console.log("oi",response)
+        const data=response.data;
+        setSetor(data)
+      }catch(error){
+  console.log(error)
+      }
+    }
+  
+    useEffect(()=>{
+        getSetores()
+    },[])
     return (
-        <div>
-            <h1>Veja todos os setores cadastrados</h1>
-            <table>
-            <tr>
-                <td>Setor</td>
-                 <td>Funcções</td>
-            </tr>
-            <tr>
-                <td>Compras</td>
-                <td>
-<button className='execute'>Excluir</button>
-<Link className="verMotivo" to="/administrador/VerMotivo">Ver motivo</Link>
-</td>
-            </tr>
-            </table>
-        </div>
-
+        <>
+        {setor.length===0 ? (
+            <h2>Não há nenhum setor criado</h2>
+             ):(
+              <div>
+              <p>Esta são todas os setores </p>
+             
+                     
+              <table>
+                <tr>
+          
+             <td>Nome</td>
+           
+             <td>Função</td>
+             </tr>
+             <>
+          {setor.map((setores)=>(
+          
+             <tr key={setores.id}>
+          
+             <td>{setores.nome_setor}</td>
+            
+             <td>
+             <button className="execute">
+              <BsFillTrashFill/>
+              </button>
+             <Link className="verMotivo" to={`/administrador/setor/${setores.id}`}>
+<BsPencil/>
+             </Link>
+             </td>
+             </tr>
+          ))
+          }
+          </>
+              
+                  </table>
+              </div>
+            )}
+</>
     )
 }
