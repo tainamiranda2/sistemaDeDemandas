@@ -45,12 +45,13 @@ export const VerSetores =()=>{
              <td>{setores.nome_setor}</td>
             
              <td>
-             <button className="execute">
+             <Link className="editarDemanda" to={`/administrador/EdicaoSetor/${setores.id}`}>
+            <BsPencil/>
+             </Link>
+             <button className="excluirDemanda">
               <BsFillTrashFill/>
               </button>
-             <Link className="verMotivo" to={`/administrador/setor/${setores.id}`}>
-<BsPencil/>
-             </Link>
+          
              </td>
              </tr>
           ))

@@ -10,10 +10,11 @@ import {DashboardAdm}  from './views/administrador/dashboardAdm';
 import {CadastroUsuario} from './views/administrador/CadastroUsuario';
 import {VerColaborador} from './views/administrador/VerColaborador';
 import {EdicaoUsuario} from './views/administrador/EdicaoUsuario';
+import {VerMotivo} from './views/administrador/VerMotivo';
 
 import {CadastrarSetores} from './views/administrador/CadastrarSetores';
 import {VerSetores} from './views/administrador/VerSetores';
-import {VerMotivo} from './views/administrador/VerMotivo';
+import {EdicaoSetor} from './views/administrador/EdicaoSetor';
 
 import {VerStatus} from './views/administrador/VerStatus';
 import {CadastroStatus} from './views/administrador/CadastroStatus';
@@ -54,7 +55,8 @@ export const Router=()=>{
           <Route path='/administrador/VerStatus' element={<VerStatus/>}/>
           <Route path='/administrador/EdicaoStatus/:id' element={<EdicaoStatus/>}/>
           <Route path='/administrador/EdicaoUsuario/:id' element={<EdicaoUsuario/>}/>
-         
+          <Route path='/administrador/EdicaoSetor/:id' element={<EdicaoSetor/>}/>
+
           <Route path='/colaborador' element={<DashboardColaborador/>}/>
           <Route path='/colaborador/DemandasEmAndamento' element={<DemandasEmAndamento/>}/>
           <Route path='/colaborador/Perfil' element={<PerfilColaborador/>}/>

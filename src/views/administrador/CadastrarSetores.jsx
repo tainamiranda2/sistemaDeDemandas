@@ -16,7 +16,7 @@ export const CadastrarSetores =()=>{
             const res=await axios.post("http://localhost:81/api-demanda/setor/add/",{
                 nome_setor:nome_setor,
                
-                usuario_id:mudarUsuario,
+                usuario_id:mudarUsuario
                
             })
             if(res.status==200){

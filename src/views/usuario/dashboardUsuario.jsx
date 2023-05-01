@@ -18,8 +18,6 @@ export const DashboardUsuario = () => {
 console.log(error)
     }
   }
-
-  
   
   async function deleteDemanda(id) {
     const res = await axios.delete(`http://localhost:81/api-demanda/demandas/delete/${id}`)

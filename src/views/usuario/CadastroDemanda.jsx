@@ -1,8 +1,8 @@
 import React from 'react';
 import Input from "../../components/input/Input";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 
 
 export const CadastroDemanda = () => {
@@ -14,6 +14,7 @@ export const CadastroDemanda = () => {
     const [tipo, setTipo] = useState('')
     const [descricao, setDescricao] = useState('')
     const [usuario_id]=useState('3')
+    const history=useNavigate()
 
     const createDemanda= async(e) =>{
         e.preventDefault();
@@ -31,7 +32,13 @@ export const CadastroDemanda = () => {
             usuario_id:  mudarUsuario
 
         })
-        console.log(res)
+       // console.log(res)
+       if(res.status==200){
+        history("/usuario");
+    }else{
+        alert("Tem algum dado errado")
+    }
+ 
     }
     return (
         <div>

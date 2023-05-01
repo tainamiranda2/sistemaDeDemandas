@@ -55,12 +55,13 @@ export const VerColaborador =()=>{
    <td>{usuario.telefone}</td>
    <td>{usuario.papel_id}</td>
    <td>
-   <button onClick={()=>deleteUsuario(usuario.id)}>
-   <BsFillTrashFill />
-   </button>
-<Link className="verMotivo" to={`/adminstrador/EdicaoUsuario/${usuario.id}`}>
+   <Link className="editarDemanda" to={`/administrador/EdicaoUsuario/${usuario.id}`}>
 <BsPencil/>
 </Link>
+   <button className="excluirDemanda" onClick={()=>deleteUsuario(usuario.id)}>
+   <BsFillTrashFill  />
+   </button>
+
    </td>
    </tr>
 ))

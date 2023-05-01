@@ -45,12 +45,13 @@ export const VerStatus =()=>{
              <td>{statusS.nome_status}</td>
             
              <td>
-             <button className="execute">
+            
+             <Link className="editarDemanda"  to={`/administrador/EdicaoStatus/${statusS.id}`}>
+            <BsPencil/>
+             </Link>
+             <button className="excluirDemanda">
               <BsFillTrashFill/>
               </button>
-             <Link className="verMotivo" to={`/administrador/EdicaoStatus/${statusS.id}`}>
-<BsPencil/>
-             </Link>
              </td>
              </tr>
           ))
