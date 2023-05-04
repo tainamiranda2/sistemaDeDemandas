@@ -52,8 +52,9 @@ export const Router=()=>{
           <Route path='/administrador/CadastrarSetores' element={<CadastrarSetores/>}/>
           <Route path='/administrador/VerSetores' element={<VerSetores/>}/>
           <Route path='/administrador/VerMotivo' element={<VerMotivo/>}/>
-          <Route path='/administrador/VerStatus' element={<VerStatus/>}/>
+         {/**  <Route path='/administrador/VerStatus' element={<VerStatus/>}/>
           <Route path='/administrador/EdicaoStatus/:id' element={<EdicaoStatus/>}/>
+          */}
           <Route path='/administrador/EdicaoUsuario/:id' element={<EdicaoUsuario/>}/>
           <Route path='/administrador/EdicaoSetor/:id' element={<EdicaoSetor/>}/>
 

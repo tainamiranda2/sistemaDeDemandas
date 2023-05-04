@@ -1,32 +1,37 @@
 import React from "react";
 import Input from "../../components/input/Input";
-import { Link } from "react-router-dom";
+import { Link , useParams,useNavigate} from "react-router-dom";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 export const MotivoColaboradorDemanda = () => {
-    const [name, setName] = useState('')
-    const [qtd, setQtd] = useState('')
-    const [tipo, setTipo] = useState('')
+    const {id}=useParams()
+    const history=useNavigate()
+
     const [motivoDemanda, setMotivoDemanda] = useState('')
 
+    const executarDemanda = async (event) => {
+        event.preventDefault();
+        try {
+          const res = await axios.put(`http://localhost:81/api-demanda/demandas/edit/${id}/`, {
+            status_id: 1, 
+            motivoDemanda: motivoDemanda // Adicione o motivo de não realização
+          });
+          console.log(res);
+          if(res.status==200){
+            history("/colaborador");
+        }else{
+            alert("Tem algum dado errado")
+        }
+          // Aqui você pode atualizar o estado da demanda em questão para que ela não apareça mais na lista de demandas em andamento
+        } catch (error) {
+          console.log(error);
+        }
+       
+      }
+      
     
-    async function createDemanda() {
-        e.preventDefault();
-        //console.log(name)
-        const res = await axios.post("http://localhost:81/api-demanda/demandas/", {
-            name: name,
-            qtd: qtd,
-            tipo: tipo,
-            motivoDemanda: motivoDemanda,
-            demanda_id: demanda_id,
-
-
-        })
-
-
-    }
     return (
         <div>
             <nav>
@@ -36,28 +41,25 @@ export const MotivoColaboradorDemanda = () => {
             </nav>
             <h1>Informe o motivo de não realizar a demanda</h1>
 
-            <form onSubmit={createDemanda}>
+            <form  onSubmit={executarDemanda}>
                 
-                <Input text="Nome: " type="text" name="nome" placeholder="Digite o nome da demanda" required />
-                <Input text="QTD: " name="qtd" type="number" placeholder="Digite o a quantidade da demanda" required />
-                <Input text="Tipo: " type="text" name="tipo" placeholder="Digite o tipo da demanda" required />
-                <Input text="Motivo da demanda: " type="text" name="motivoDemanda" placeholder="Digite o motivo da demanda" required />
+                <Input text="Motivo da demanda: " 
+                type="text" 
+                name={motivoDemanda}
+                value={motivoDemanda}
+              
+                placeholder="Digite o motivo da demanda"
+                onChange={(event) => setMotivoDemanda(event.target.value)}
+                 required 
+                 />
                 
                 <div className='form-justo'>
-                    <button>Confirmar</button>
+                    <button >Confirmar</button>
                     <button className='cancel'>Cancelar</button>
                 </div>
 
-
-
-
             </form>
                 
-
-
-
-            
-
         </div>
 
 

@@ -10,7 +10,7 @@ export const CadastroDemanda = () => {
     const [nome_demanda, setNomeDemanda] = useState('')
     const [qtd, setQtd] = useState('')
     const [setor_id] = useState('1')
-    const [status_id] = useState('1')
+    const [status_id] = useState('2')
     const [tipo, setTipo] = useState('')
     const [descricao, setDescricao] = useState('')
     const [usuario_id]=useState('3')

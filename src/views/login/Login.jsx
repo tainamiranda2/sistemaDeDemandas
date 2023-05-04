@@ -1,6 +1,6 @@
 import React from 'react'
 import Input from "../../components/input/Input";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {useNavigate,Link} from 'react-router-dom';
 
 export  const Login =()=>{
@@ -9,7 +9,16 @@ const [senha,setSenha]=useState('')
 const [error,setError]=useState('')
 
 const history=useNavigate()
-
+const getUser =async()=>{
+    try{
+      const response=await axios.get('http://localhost:81/api-demanda/demandas/')
+     // console.log("oi",response)
+      const data=response.data;
+      setDemandas(data)
+    }catch(error){
+console.log(error)
+    }
+  }
     const ValidarForm=async e=>{
         e.preventDefault();
        // console.log(name)
@@ -29,6 +38,10 @@ const history=useNavigate()
     }
 
     }
+    
+    useEffect(()=>{
+        getDemandas()
+          },[])
 return (
 <div>
 

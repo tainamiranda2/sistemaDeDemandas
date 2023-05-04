@@ -33,8 +33,8 @@ getDemandas()
             <Link to ="/administrador/CadastrarSetores">Crie setores</Link>
             <Link to ="/administrador/VerSetores">Ver setores cadastrados</Link>
 
-            <Link to ="/administrador/CadastroStatus">Crie status</Link>
-            <Link to ="/administrador/VerStatus">Ver status cadastrados</Link>
+          {/**  <Link to ="/administrador/CadastroStatus">Crie status</Link>
+            <Link to ="/administrador/VerStatus">Ver status cadastrados</Link>**/} 
 
             </nav> 
    {demandas.length===0 ? (

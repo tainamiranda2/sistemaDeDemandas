@@ -3,7 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import {BsPencil,BsFillTrashFill } from 'react-icons/bs'
+import {BsPencil,BsFillTrashFill,BsSearchHeartFill , BsFillFilterCircleFill} from 'react-icons/bs'
+import Input from "../../components/input/Input";
 export const DashboardUsuario = () => {
   const [demandas, setDemandas] = useState([])
 
@@ -19,10 +20,12 @@ console.log(error)
     }
   }
   
-  async function deleteDemanda(id) {
-    const res = await axios.delete(`http://localhost:81/api-demanda/demandas/delete/${id}`)
- console.log(id)
-  }
+  
+async function deleteDemanda(id) {
+  console.log(id);
+  const res = await axios.delete(`http://localhost:81/api-demanda/demandas/delete/${id}`);
+  console.log(res);
+}
 
   useEffect(()=>{
     getDemandas()
@@ -41,14 +44,28 @@ console.log(error)
       ) : (
         <div>
           <p>Esta são todas as demandaas cadastradas</p>
+{/*<div className="search">
 
+<div className="search-input">
 
+<BsSearchHeartFill/>
+<input type="search" placeholder="Buscar"/> 
+</div>
+<div className="filtrar">
+< BsFillFilterCircleFill/>
+<p>Filtrar</p>
+
+</div>
+
+</div>
+*/}
           <table>
             <tr>
            
               <td>Nome</td>
               <td>Qtd</td>
               <td>Tipo</td>
+           
               <td>Descrição</td>
              
               <td>Função</td>
@@ -61,6 +78,7 @@ console.log(error)
                   <td>{demanda.nome_demanda}</td>
                   <td>{demanda.qtd}</td>
                   <td>{demanda.tipo}</td>
+              
                   <td>{demanda.descricao}</td>
             
                   <td>

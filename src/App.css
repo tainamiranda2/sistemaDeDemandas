@@ -64,6 +64,50 @@ td{
     border: solid 1px #2196f3;
     padding: 10px;
 }
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   /*    background-color: #f2f2f2;
+   padding: 1px;
+   */
+ width: 100%;
+  }
+  
+  .search-input {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 30px;
+    border: solid #000 1px;
+    
+    height: 35px;
+    width: 80%;
+  }
+  
+  .search-input input {
+    border: none;
+  background-color: transparent;
+    font-size: 16px;
+    /*  padding: 10px;*/
+   width: 100%;
+  }
+  .filtrar {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .filtrar p {
+    font-size: 16px;
+    /*margin-right: 5px;*/
+  }
+  
+  .filtrar svg {
+    font-size: 24px;
+  }
+  
 .verMotivo{
     background: #2196f3;
     border-radius: 10px;
@@ -93,6 +137,10 @@ margin: 2px;
     width: 100%;
  margin: 2px;
  color:#fff;
+}
+/**/
+.form-justo{
+display: flex;
 }
 /*css da home*/
 a{

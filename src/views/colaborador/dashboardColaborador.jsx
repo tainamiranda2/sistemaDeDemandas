@@ -18,6 +18,15 @@ export const DashboardColaborador = () => {
     }
   }
 
+  let demandasFinalizadas = [];
+demandas.forEach(function(demanda) {
+  if (demanda.status_id === 2) {
+    demandasFinalizadas.push(demanda);
+  }
+});
+//console.log(demandasFinalizadas)
+//console.log(demandas)
+
   useEffect(() => {
     getDemandas()
   }, [])
@@ -29,7 +38,7 @@ export const DashboardColaborador = () => {
         <Link to="/colaborador/Perfil">Perfil</Link>
       </nav>
       <h1>Bem vindo ao sistema, Carlos</h1>
-      {demandas.length === 0 ? (
+      {demandasFinalizadas.length === 0 ? (
         <h2>Não há nenhuma demanda finalizada</h2>
       ) : (
         <div>
@@ -46,16 +55,13 @@ export const DashboardColaborador = () => {
           
             </tr>
             <>
-              {demandas.map((demanda) => (
+              {demandasFinalizadas.map((demanda) => (
 
                 <tr key={demanda.id}>
-
-                  
                   <td>{demanda.nome_demanda}</td>
                   <td>{demanda.qtd}</td>
                   <td>{demanda.tipo}</td>
                   <td>{demanda.descricao}</td>
-               
                 
                 </tr>
               ))
