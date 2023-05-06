@@ -45,7 +45,7 @@ export const Router=()=>{
           <Route path='/login' element={<Login/>}/>
           <Route path='/*' element={<notFound/>}/>
 
-          <Route path='/administrador' element={<DashboardAdm/>}/>
+          <Route path='/administrador/:id' element={<DashboardAdm/>}/>
           <Route path='/administrador/CadastroStatus' element={<CadastroStatus/>}/>
           <Route path='/administrador/CadastroUsuario' element={<CadastroUsuario/>}/>
           <Route path='/administrador/VerColaborador' element={<VerColaborador/>}/>
@@ -58,20 +58,18 @@ export const Router=()=>{
           <Route path='/administrador/EdicaoUsuario/:id' element={<EdicaoUsuario/>}/>
           <Route path='/administrador/EdicaoSetor/:id' element={<EdicaoSetor/>}/>
 
-          <Route path='/colaborador' element={<DashboardColaborador/>}/>
+          <Route path='/colaborador/:id' element={<DashboardColaborador/>}/>
           <Route path='/colaborador/DemandasEmAndamento' element={<DemandasEmAndamento/>}/>
-          <Route path='/colaborador/Perfil' element={<PerfilColaborador/>}/>
+          <Route path='/colaborador/Perfil/:id' element={<PerfilColaborador/>}/>
           <Route path='/colaborador/MotivocolaboradorDemanda/:id' element={<MotivoColaboradorDemanda/>}/>
           <Route path='/colaborador/DemandasExecutadas' element={<DemandasExecutadas/>}/>
           <Route path='/colaborador/EnvioDemandaPendente/:id' element={<EnvioDemandaPendente/>}/>
          
-          <Route path='/usuario' element={<DashboardUsuario/>}/>
+          <Route path='/usuario/:id' element={<DashboardUsuario/>}/>
           <Route path='/usuario/CadastroDemanda' element={<CadastroDemanda/>}/>
-          <Route path='/usuario/Perfil' element={<Perfil/>}/>
+          <Route path='/usuario/Perfil/:id' element={<Perfil/>}/>
           <Route path='/usuario/EdicaoDemanda/:id' element={<EdicaoDemanda/>}/>
           <Route path='/usuario/ImprimirDemanda/:id' element={<ImprimirDemanda/>}/>
-          
-          
 
         </Routes>
         </BrowserRouter>

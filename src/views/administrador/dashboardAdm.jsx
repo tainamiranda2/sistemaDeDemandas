@@ -17,7 +17,33 @@ export const DashboardAdm =()=>{
 console.log(error)
     }
   }
+  const executarDemanda = async (id) => {
+    try {
+      const res = await axios.put(`http://localhost:81/api-demanda/demandas/edit/${id}/`, {
+        status_id: 2
+      });
+      console.log(res);
+        
+    if(res.status==200){
+      history("/administrador");
+  }else{
+      alert("Tem algum dado errado")
+  }
+      // Aqui você pode atualizar o estado da demanda em questão para que ela não apareça mais na lista de demandas em andamento
+    } catch (error) {
+      console.log(error);
+    }
+  
+    
+  }
 
+  let demandasPendentes = [];
+  demandas.forEach(function(demanda) {
+    if (demanda.status_id === 1) {
+      demandasPendentes.push(demanda);
+   }
+  });
+ 
   useEffect(()=>{
 getDemandas()
   },[])
@@ -51,10 +77,11 @@ getDemandas()
    <td>Descrição</td>
    <td>Qtd</td>
    <td>Tipo</td>
+   <td>Status</td>
    <td>Função</td>
    </tr>
    <>
-{demandas.map((demanda)=>(
+{demandasPendentes.map((demanda)=>(
 
    <tr key={demanda.id}>
 
@@ -62,8 +89,9 @@ getDemandas()
    <td>{demanda.descricao}</td>
    <td>{demanda.qtd}</td>
    <td>{demanda.tipo}</td>
+   <td>Pendente</td>
    <td>
-   <button className="execute">
+   <button className="execute" onClick={() => executarDemanda(demanda.id)}>
     <BsCheck/>
     </button>
    <Link className="verMotivo" to={`/administrador/VerMotivo/{demanda.id}`}>Ver motivo</Link>

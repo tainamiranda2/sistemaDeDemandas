@@ -1,11 +1,12 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import {BsPencil,BsFillTrashFill,BsSearchHeartFill , BsFillFilterCircleFill} from 'react-icons/bs'
 import Input from "../../components/input/Input";
 export const DashboardUsuario = () => {
+  const {id}=useParams()
   const [demandas, setDemandas] = useState([])
 
   //funcao para ver todas as demandas cadastradas
@@ -36,7 +37,7 @@ async function deleteDemanda(id) {
       <nav>
         <Link to="/usuario">Minhas demandas</Link>
         <Link to="/usuario/CadastroDemanda">Criar demandas</Link>
-        <Link to="/usuario/Perfil">Perfil</Link>
+        <Link to={`/usuario/Perfil/${id}`}>Perfil</Link>
       </nav>
       <h1>Bem vindo ao sistema, Maria</h1>
       {demandas.length === 0 ? (

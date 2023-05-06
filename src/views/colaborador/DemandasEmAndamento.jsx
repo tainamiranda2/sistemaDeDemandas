@@ -21,7 +21,7 @@ export const DemandasEmAndamento = () => {
   const executarDemanda = async (id) => {
     try {
       const res = await axios.put(`http://localhost:81/api-demanda/demandas/edit/${id}/`, {
-        status_id: 2 // 2 é o ID do status "Em andamento"
+        status_id: 2 
       });
       console.log(res);
         
@@ -42,9 +42,9 @@ export const DemandasEmAndamento = () => {
   demandas.forEach(function(demanda) {
     if (demanda.status_id === 3) {
       demandasEmAndamento.push(demanda);
-    }
+   }
   });
-
+ 
 
   useEffect(() => {
     getDemandas()

@@ -1,60 +1,75 @@
 import React from 'react'
 import Input from "../../components/input/Input";
-import { useState, useEffect } from 'react';
-import {useNavigate,Link} from 'react-router-dom';
+import { useState, useEffect,  createContext  } from 'react';
+import {useNavigate,Link, useParams} from 'react-router-dom';
+
+import axios  from 'axios'
+const UserContext = createContext();
 
 export  const Login =()=>{
-const [name,setName]=useState('')
+
+   // const {id}=useParams()
+const [usuario,setUsuario]=useState([])
+
+const [nome,setNome]=useState('')
 const [senha,setSenha]=useState('')
 const [error,setError]=useState('')
 
+
 const history=useNavigate()
+const ValidarForm=async e=>{
+    e.preventDefault();
+        getUser();
+}
+
 const getUser =async()=>{
     try{
-      const response=await axios.get('http://localhost:81/api-demanda/demandas/')
+      const response=await axios.get('http://localhost:81/api-demanda/usuario/')
      // console.log("oi",response)
       const data=response.data;
-      setDemandas(data)
-    }catch(error){
-console.log(error)
+      setUsuario(data)
+      const usuarioEncontrado = data.find(user => user.nome === nome);
+      // Verificar se o usuário foi encontrado
+     //console.log(nome)
+     //console.log( usuarioEncontrado )
+
+      if (usuarioEncontrado) {
+        const userPapel = usuarioEncontrado.papel_id;
+            if( userPapel===1){
+            history(`/administrador/${ userPapel}`);
+                // Passar os dados do usuário pelo contexto
+
+                }else if(userPapel===4){
+                history(`/colaborador/${ userPapel}`);
+                }else{
+                history(`/usuario/${ userPapel}`);
+                }
+                //console.log(userPapel)
+      }
+
+    } catch (error) {
+      console.log(error);
     }
-  }
-    const ValidarForm=async e=>{
-        e.preventDefault();
-       // console.log(name)
-        //console.log(typeof(senha))
-//verificando quem são os usuarios
-     if(name==='carlos' && senha==="1568"){
-        history("/colaborador");
-    }else if(name==='carol' && senha ==="1234"){
-        history("/usuario");
-    }else if(name==='pedro' && senha ==="123456"){
-        history("/administrador");
-     }else{
-       // alert("ocorreu um erro, entre em contato como suporte")
-    setName("")
-    setSenha("")
-    setError("Ocorreu um erro interno, entre em contato com o suporte.")
     }
 
-    }
-    
+ 
+
     useEffect(()=>{
-        getDemandas()
+        getUser()
           },[])
 return (
 <div>
-
+<UserContext.Provider value={{ user: usuario, setUser: setUsuario }}>
 <form onSubmit={ValidarForm}>
-    <p>{error}</p>
+   
 <Input
     text="infome seu nome"
     type="text"
     placeholder="Digite seu nome"
-    name={name}
-    value ={name}
+    name={nome}
+    value ={nome}
     required
-    onChange={(e)=>setName(e.target.value)}
+    onChange={(e)=>setNome(e.target.value)}
 />
 
 <Input
@@ -73,6 +88,7 @@ return (
 <span>Esqueceu senha <Link to="/">click aqui</Link></span>
 
 </form>
+</UserContext.Provider>
 </div>
 )
 }

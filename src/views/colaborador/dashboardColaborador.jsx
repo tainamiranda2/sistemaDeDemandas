@@ -10,7 +10,7 @@ export const DashboardColaborador = () => {
   const getDemandas = async () => {
     try {
       const response = await axios.get('http://localhost:81/api-demanda/demandas/')
-      console.log("oi",response)
+    //  console.log("oi",response)
       const data = response.data;
       setDemandas(data)
     } catch (error) {

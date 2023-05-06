@@ -1,31 +1,67 @@
 import React from "react";
 import Input from "../../components/input/Input";
-import { Link } from "react-router-dom";
+import { Link,useParams,useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-
 export const Perfil = () => {
-    const [name, setName] = useState('')
+    const {id}=useParams()
+    const [usuarios,setUsuarios]=useState([])
+    const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
-    const [confirmarSenha, setConfirmarSenha] = useState('')
-    
-    async function EditeUser() {
-        e.preventDefault();
-        //console.log(name)
-        const res = await axios.put("http://localhost:81/api-demanda/usuarios/", {
-            name: name,
-            email: email,
-            senha: senha,
-            confirmarSenha: confirmarSenha,
-            usuario_id:usuario_id,
-            
-
-        })
-
-
+  //  const [confirmarSenha, setConfirmarSenha] = useState('')
+  const [telefone,setTelefone]=useState('')
+  const [papel_id]=useState('5')
+const [usuario_id]=useState('3')
+const history=useNavigate()
+  const getColaborador =async()=>{
+    try{
+      const response=await axios.get(`http://localhost:81/api-demanda/usuario/view/${id}/`)
+     // console.log("oi",response)
+      const data=response.data;
+      setUsuarios(data)
+    }catch(error){
+console.log(error)
     }
+  }
+
+const EditeUser=async(e)=>{
+    e.preventDefault();
+   
+    let mudarPapel=parseInt(papel_id)
+    let mudarUsuario=parseInt(usuario_id)
+      let mudarTelefone=parseInt(telefone)
+      let mudarSenha=parseInt(senha)
+    const res=await axios.put(`http://localhost:81/api-demanda/usuario/edit/${id}/`,{
+        nome:nome,
+        email:email,
+        senha:mudarSenha,
+         telefone:mudarTelefone,
+         usuario_id:mudarUsuario,
+         papel_id:mudarPapel
+
+    })
+    if(res.status==200){
+        history("/administrador/VerColaborador");
+    }else{
+        alert("Tem algum dado errado")
+    }
+}
+
+useEffect(()=>{
+    getColaborador()
+      },[])
+
+      useEffect(() => {
+        if (usuarios.length > 0) {
+          setNome(usuarios[0].nome);
+          setEmail(usuarios[0].email);
+          setTelefone(usuarios[0].telefone);
+          setSenha(usuarios[0].senha);
+        }
+      }, [usuarios]);
+      
     return (
         <div>
             <nav>
@@ -37,21 +73,44 @@ export const Perfil = () => {
 
             <form onSubmit={EditeUser}>
 
-                <Input text="Nome do colaborador: " type="text" name="nomeColaborador" placeholder="Digite o nome do colaborador" required />
-                <Input text="Email: " name="email" type="email" placeholder="Digite o email" required />
-                <Input text="Senha: " type="password" name="senha" placeholder="Digite a senha" required />
-                <Input text="Confirmar senha : " type="password" name="confirmarSenha" placeholder="Digite a senha novamente" required />
-
-
-
-
+             
+            <Input
+            text="Nome do colaborador"
+            type="text"
+            placeholder="Informe o nome o seu nome"
+            value={nome}
+            name={nome}
+            onChange={(e)=>setNome(e.target.value)}
+          />
+             <Input
+            text="Email do colaborador"
+            type="text"
+            placeholder="Informe o email  do colaborador"
+            value={email}
+            name={email}
+            onChange={(e)=>setEmail(e.target.value)}
+            />
+             <Input
+            text="Telefone do susario"
+            type="number"
+            placeholder="Informe o telefone  do colaborador"
+            value={telefone}
+            name={telefone}
+            onChange={(e)=>setTelefone(e.target.value)}
+            />
+             <Input
+            text="Senha do usuario"
+            type="text"
+            placeholder="Informe a senha  do usuario"
+            value={senha}
+            name={senha}
+            onChange={(e)=>setSenha(e.target.value)}
+            />
+                       
                 <div className='form-justo'>
-                    <button>Confirmar</button>
-                    <button className='cancel'>Cancelar</button>
-                </div>
-
-
-
+            <button>Confirmar</button>
+            <button className='cancel'>Cancelar</button>
+            </div>
             </form>
 
         </div>
