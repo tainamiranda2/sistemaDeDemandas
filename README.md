@@ -6,9 +6,11 @@
 ## sistema 
 
 <img src="./home.png"/>
+
 ## Features:
+
 * login - /
-* logt - /
+* logout- /
 * recuperar senha - X
 * solicitar serviço - X
 
