@@ -58,6 +58,17 @@ form{
         border-right:none;
         border-left:none;
     }
+    select{
+      width: 100%;
+      padding:15px;
+   
+      color: #fff;
+      margin:15px;
+  border-radius:10px;
+  font-size:12px;
+  background: #55A4F3;
+
+    }
 
 td{
     margin: 5px;

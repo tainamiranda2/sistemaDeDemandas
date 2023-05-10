@@ -34,6 +34,7 @@ import {Perfil} from "./views/usuario/Perfil";
 import {EdicaoDemanda} from './views/usuario/EdicaoDemanda';
 import {ImprimirDemanda} from './views/usuario/ImprimirDemanda';
 import { Navbar } from './components/navbar/Navbar';
+import { PerfilAdministrador } from './views/administrador/PerfilAdministrador';
 
 
 export const Router=()=>{
@@ -47,11 +48,12 @@ export const Router=()=>{
 
           <Route path='/administrador/:id' element={<DashboardAdm/>}/>
           <Route path='/administrador/CadastroStatus' element={<CadastroStatus/>}/>
-          <Route path='/administrador/CadastroUsuario' element={<CadastroUsuario/>}/>
+          <Route path='/administrador/CadastroUsuario/:id' element={<CadastroUsuario/>}/>
           <Route path='/administrador/VerColaborador' element={<VerColaborador/>}/>
           <Route path='/administrador/CadastrarSetores' element={<CadastrarSetores/>}/>
           <Route path='/administrador/VerSetores' element={<VerSetores/>}/>
           <Route path='/administrador/VerMotivo' element={<VerMotivo/>}/>
+          <Route path='/administrador/Perfil/:id' element={<PerfilAdministrador/>}/>
          {/**  <Route path='/administrador/VerStatus' element={<VerStatus/>}/>
           <Route path='/administrador/EdicaoStatus/:id' element={<EdicaoStatus/>}/>
           */}

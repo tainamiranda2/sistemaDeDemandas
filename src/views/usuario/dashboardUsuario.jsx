@@ -35,11 +35,12 @@ async function deleteDemanda(id) {
   return (
     <div>
       <nav>
-        <Link to="/usuario">Minhas demandas</Link>
+        <Link to={`/usuario/${id}`}>Minhas demandas</Link>
         <Link to="/usuario/CadastroDemanda">Criar demandas</Link>
         <Link to={`/usuario/Perfil/${id}`}>Perfil</Link>
+        <Link to="/" >Sair</Link>
       </nav>
-      <h1>Bem vindo ao sistema, Maria</h1>
+   
       {demandas.length === 0 ? (
         <h2>Não há nenhuma demanda cadastrada</h2>
       ) : (

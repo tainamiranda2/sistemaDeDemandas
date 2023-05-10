@@ -11,7 +11,7 @@ export const Home =()=>{
             <Link to="/login">Login</Link>
 
            </nav>
-         <h1>Sistemas de demandas</h1>
+         <h1>Sistema de demandas</h1>
          <form>
          <img src={home}/>
      <button>Solicitar  serviço</button>

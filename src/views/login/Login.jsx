@@ -35,16 +35,22 @@ const getUser =async()=>{
 
       if (usuarioEncontrado) {
         const userPapel = usuarioEncontrado.papel_id;
-            if( userPapel===1){
-            history(`/administrador/${ userPapel}`);
+          const userID=usuarioEncontrado.id
+      // console.log(userPapel)
+       //console.log(userID)
+          if( userPapel===1){
+            
+            history(`/administrador/${ userID}`);
                 // Passar os dados do usuário pelo contexto
 
                 }else if(userPapel===4){
-                history(`/colaborador/${ userPapel}`);
+                history(`/colaborador/${ userID}`);
+                }else if(userPapel===5){
+                history(`/usuario/${ userID}`);
                 }else{
-                history(`/usuario/${ userPapel}`);
+                  alert("O usuário não foi encontrado no sistema!")
                 }
-                //console.log(userPapel)
+                //console.log(userPapel)*/
       }
 
     } catch (error) {

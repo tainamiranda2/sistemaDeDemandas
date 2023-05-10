@@ -1,10 +1,11 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
 import { BsCheck} from 'react-icons/bs'
 export const DashboardAdm =()=>{
+  const {id}=useParams()
   const [demandas,setDemandas]=useState([])
   //funcao para ver todas as demandas pendentes
   const getDemandas =async()=>{
@@ -25,11 +26,10 @@ console.log(error)
       console.log(res);
         
     if(res.status==200){
-      history("/administrador");
+      history(`/administrador/${id}`);
   }else{
       alert("Tem algum dado errado")
   }
-      // Aqui você pode atualizar o estado da demanda em questão para que ela não apareça mais na lista de demandas em andamento
     } catch (error) {
       console.log(error);
     }
@@ -52,13 +52,14 @@ getDemandas()
 
         
           <nav>
-          <Link to ="/administrador">Ver demandas pendentes</Link>
-            <Link to ="/administrador/CadastroUsuario">Cadastre colaborador</Link>
+          <Link to ={`/adminstrador/${id}`}>Ver demandas pendentes</Link>
+            <Link to ={`/administrador/CadastroUsuario/${id}`}>Cadastre colaborador</Link>
             <Link to ="/administrador/VerColaborador">Ver colabolares cadastrados</Link>
             
             <Link to ="/administrador/CadastrarSetores">Crie setores</Link>
             <Link to ="/administrador/VerSetores">Ver setores cadastrados</Link>
-
+            <Link to={`/administrador/Perfil/${id}`}>Perfil</Link>
+            <Link to="/" >Sair</Link>
           {/**  <Link to ="/administrador/CadastroStatus">Crie status</Link>
             <Link to ="/administrador/VerStatus">Ver status cadastrados</Link>**/} 
 

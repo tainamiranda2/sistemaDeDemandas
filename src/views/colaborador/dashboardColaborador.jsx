@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import { useState, useEffect} from "react";
 
 export const DashboardColaborador = () => {
+  const {id}=useParams()
   const [demandas, setDemandas] = useState([])
 
   //funcao para ver todas as demandas finalizadas
@@ -33,11 +34,12 @@ demandas.forEach(function(demanda) {
   return (
     <div>
       <nav>
-        <Link to="/colaborador">Finalizadas</Link>
+        <Link to={`/colaborador/${id}`}>Finalizadas</Link>
         <Link to="/colaborador/DemandasEmAndamento">Em andamento</Link>
-        <Link to="/colaborador/Perfil">Perfil</Link>
+        <Link to={`/colaborador/Perfil/${id}`}>Perfil</Link>
+         <Link to="/" >Sair</Link>
       </nav>
-      <h1>Bem vindo ao sistema, Carlos</h1>
+    
       {demandasFinalizadas.length === 0 ? (
         <h2>Não há nenhuma demanda finalizada</h2>
       ) : (
@@ -52,7 +54,7 @@ demandas.forEach(function(demanda) {
               <td>Qtd</td>
               <td>Tipo</td>
               <td>Descrição</td>
-          
+              <td>Status</td>
             </tr>
             <>
               {demandasFinalizadas.map((demanda) => (
@@ -62,7 +64,7 @@ demandas.forEach(function(demanda) {
                   <td>{demanda.qtd}</td>
                   <td>{demanda.tipo}</td>
                   <td>{demanda.descricao}</td>
-                
+                  <td>Finalizadas</td>
                 </tr>
               ))
               }

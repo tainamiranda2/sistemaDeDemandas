@@ -43,7 +43,9 @@ const EditeUser=async(e)=>{
 
     })
     if(res.status==200){
-        history("/administrador/VerColaborador");
+       
+        history(`/usuario/${id}`);
+     
     }else{
         alert("Tem algum dado errado")
     }
@@ -65,15 +67,13 @@ useEffect(()=>{
     return (
         <div>
             <nav>
-                <Link to="#" onClick={() => window.history.back()}>Voltar</Link>
-
+                <Link to={`/usuario/${id}`}>Voltar</Link>
 
             </nav>
             <h1>Editar perfil</h1>
 
             <form onSubmit={EditeUser}>
 
-             
             <Input
             text="Nome do colaborador"
             type="text"

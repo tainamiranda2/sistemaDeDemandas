@@ -26,7 +26,7 @@ export const DemandasEmAndamento = () => {
       console.log(res);
         
     if(res.status==200){
-      history("/colaborador");
+      history(`/colaborador/${id}`);
   }else{
       alert("Tem algum dado errado")
   }
@@ -52,9 +52,9 @@ export const DemandasEmAndamento = () => {
   return (
     <div>
       <nav>
-        <Link to="/colaborador">Finalizadas</Link>
-        <Link to="/colaborador/DemandasEmAndamento">Em andamento</Link>
-        <Link to="/colaborador/Perfil">Perfil</Link>
+      
+        <Link to="#" onClick={() => window.history.back()}>Voltar</Link>
+
       </nav>
       <h1>Bem vindo ao sistema, Carlos</h1>
       {demandasEmAndamento.length === 0 ? (
@@ -71,7 +71,7 @@ export const DemandasEmAndamento = () => {
               <td>Qtd</td>
               <td>Tipo</td>
               <td>Descrição</td>
-            
+              <td>Status</td>
               <td>Função</td>
             </tr>
             <>
@@ -82,7 +82,7 @@ export const DemandasEmAndamento = () => {
                   <td>{demanda.qtd}</td>
                   <td>{demanda.tipo}</td>
                   <td>{demanda.descricao}</td>
-               
+                  <td>Em andamento</td>
                   <td>
                     <button className="executarDemanda" onClick={() => executarDemanda(demanda.id)} >
                       Executar

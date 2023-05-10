@@ -43,9 +43,7 @@ export const CadastroDemanda = () => {
     return (
         <div>
             <nav>
-                <Link to="/usuario">Minhas demandas</Link>
-                <Link to="/usuario/CadastroDemanda">Criar demandas</Link>
-                <Link to="/usuario/Perfil">Perfil</Link>
+      
                 <Link to="#" onClick={() => window.history.back()}>Voltar</Link>
 
             </nav>

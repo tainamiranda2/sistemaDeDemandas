@@ -29,12 +29,13 @@ export const VerColaborador =()=>{
     return (
         <div>
          
-
+         <Link to="#" onClick={() => window.history.back()}>Voltar</Link>
+                <Link to="/" >Sair</Link>
         {usuarios.length===0 ? (
   <h2>Não há nenhum colaborador cadastrado</h2>
    ):(
     <div>
-    <p>Esta são todas os usuarios </p>
+    <p>Este são todas os usuarios </p>
    
     <table>
       <tr>

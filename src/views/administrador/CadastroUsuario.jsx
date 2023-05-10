@@ -3,18 +3,19 @@ import Input from "../../components/input/Input";
 import axios from "axios";
 
 //import Select from "../../components/select/Select";
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,Link,useParams} from 'react-router-dom';
 import { useState } from 'react';
 
-
-
 export const CadastroUsuario =()=>{
+    const {id}=useParams()
 const [nome,setNome]=useState('')
 const [email,setEmail]=useState('')
 const [senha,setSenha]=useState('')
 const [telefone,setTelefone]=useState('')
-const [papel_id]=useState('1')
-const [usuario_id]=useState('3')
+const [papel_id, setPapelID]=useState('')
+const [ usuario_id]=useState('')
+//console.log(id)
+//console.log(usuario_id)
 
 const history=useNavigate()
 
@@ -42,6 +43,10 @@ const createUser =async(e)=>{
     
     return (
         <div>
+            <nav>
+            <Link to="#" onClick={() => window.history.back()}>Voltar</Link>
+                <Link to="/" >Sair</Link>
+                </nav>
             <h1>Cadastre um colaborador</h1>
         <form onSubmit={createUser}> 
             <Input
@@ -60,6 +65,12 @@ const createUser =async(e)=>{
             name={email}
             onChange={(e)=>setEmail(e.target.value)}
             />
+            <select value={papel_id}
+            name={papel_id} onChange={(e) => setPapelID(e.target.value)}>
+                <option value="4">Colaborador</option>
+                <option value="1">Administrador</option>
+                <option value="5">Usuário comum</option>
+            </select>
              <Input
             text="Telefone do colaborador"
             type="number"
