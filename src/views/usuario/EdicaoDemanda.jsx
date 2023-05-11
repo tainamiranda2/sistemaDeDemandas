@@ -68,7 +68,7 @@ const history=useNavigate()
     return (
         <div>
              <Link to="#" onClick={() => window.history.back()}>Voltar</Link>
-            <h1>Bem vindo ao sistema, Maria</h1>
+            <h1>Bem vindo ao sistema de controle de demandas</h1>
             <form onSubmit={EditeDemanda}>
                 <h2>Edite a demanda</h2>
                 <Input text="Nome: " 

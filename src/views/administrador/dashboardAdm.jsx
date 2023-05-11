@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Link,useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
-
+import SearchForm from "../../components/search/SearchForm";
 import { BsCheck} from 'react-icons/bs'
 export const DashboardAdm =()=>{
   const {id}=useParams()
@@ -52,7 +52,7 @@ getDemandas()
 
         
           <nav>
-          <Link to ={`/adminstrador/${id}`}>Ver demandas pendentes</Link>
+          <Link to ={`/administrador/${id}`}>Ver demandas pendentes</Link>
             <Link to ={`/administrador/CadastroUsuario/${id}`}>Cadastre colaborador</Link>
             <Link to ="/administrador/VerColaborador">Ver colabolares cadastrados</Link>
             
@@ -69,8 +69,8 @@ getDemandas()
    ):(
     <div>
     <p>Esta são todas as demandas pendentes</p>
-   
-           
+  
+    <SearchForm searchURL={ '/demandas/search?keyword='}/>
     <table>
       <tr>
 

@@ -4,7 +4,8 @@ import { Link,useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import {BsPencil,BsFillTrashFill,BsSearchHeartFill , BsFillFilterCircleFill} from 'react-icons/bs'
-import Input from "../../components/input/Input";
+import SearchForm from "../../components/search/SearchForm";
+
 export const DashboardUsuario = () => {
   const {id}=useParams()
   const [demandas, setDemandas] = useState([])
@@ -36,6 +37,7 @@ async function deleteDemanda(id) {
     <div>
       <nav>
         <Link to={`/usuario/${id}`}>Minhas demandas</Link>
+        <Link to="/usuario/DemandasFinalizadas">Demandas Finalizadas</Link>
         <Link to="/usuario/CadastroDemanda">Criar demandas</Link>
         <Link to={`/usuario/Perfil/${id}`}>Perfil</Link>
         <Link to="/" >Sair</Link>
@@ -46,21 +48,9 @@ async function deleteDemanda(id) {
       ) : (
         <div>
           <p>Esta são todas as demandaas cadastradas</p>
-{/*<div className="search">
 
-<div className="search-input">
+<SearchForm searchURL={ '/demandas/search?keyword='}/>
 
-<BsSearchHeartFill/>
-<input type="search" placeholder="Buscar"/> 
-</div>
-<div className="filtrar">
-< BsFillFilterCircleFill/>
-<p>Filtrar</p>
-
-</div>
-
-</div>
-*/}
           <table>
             <tr>
            

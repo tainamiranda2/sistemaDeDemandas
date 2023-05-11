@@ -5,7 +5,17 @@
 
 ## sistema 
 
+### Home
 <img src="./home.png"/>
+
+### Demandas
+<img src="./demandas.png"/>
+
+### Finalizdas
+<img src="./finalizadas.png"/>
+
+### Cadastrar colaboradro
+<img src="./cadColaborador.png"/>
 
 ## Features:
 
@@ -22,21 +32,26 @@
 * ver usuário - OK
 * edição de perfil de todos os tipos de usuário - OK
 * excluir  usuário - X
-* pesquisar usuário  - X
+* pesquisar usuário  - OK
 * filtrar usuário  - OK
 
 * cadastro de demanda - OK
 * ver de demanda - OK
-* pesquisar de demanda - X
+* pesquisar de demanda - OK
 * filtrar de demanda - OK
+* excluir  demanda - X
+
+cadastro de setor - OK
+* ver de setor - OK
+* pesquisar de setor - OK
+* filtrar de setor - OK
 * excluir  demanda - X
 
 * execução de demandas pendentes  - OK
 * execução de demandas em andamento  - OK
-* envio ao ADM demanda pendente - X
+* envio ao ADM demanda pendente - OK
 
 
-## tecnologias utilizadas
 ### Tecnologias utilizadas:
 
 

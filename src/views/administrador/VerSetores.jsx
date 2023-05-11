@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {BsPencil,BsFillTrashFill } from 'react-icons/bs'
 import axios  from 'axios'
 import { useState, useEffect} from 'react';
+import SearchForm from "../../components/search/SearchForm";
 
 export const VerSetores =()=>{
     const [setor,setSetor]=useState([])
@@ -29,7 +30,7 @@ export const VerSetores =()=>{
               <div>
               <p>Esta são todas os setores </p>
              
-                     
+              <SearchForm searchURL={ '/setor/search?keyword='}/>       
               <table>
                 <tr>
           

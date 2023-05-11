@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import axios  from 'axios'
 import { useState, useEffect} from 'react';
-
+import SearchForm from "../../components/search/SearchForm";
 import {BsPencil,BsFillTrashFill } from 'react-icons/bs'
 export const VerColaborador =()=>{
     const [usuarios,setUsuarios]=useState([])
@@ -36,7 +36,7 @@ export const VerColaborador =()=>{
    ):(
     <div>
     <p>Este são todas os usuarios </p>
-   
+    <SearchForm searchURL={ '/usuario/search?keyword='}/>
     <table>
       <tr>
    

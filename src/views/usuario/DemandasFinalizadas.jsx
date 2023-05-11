@@ -2,9 +2,8 @@ import React from "react";
 import axios from "axios";
 import { Link,useParams } from "react-router-dom";
 import { useState, useEffect} from "react";
-import SearchForm from "../../components/search/SearchForm";
 
-export const DashboardColaborador = () => {
+export const DemandasFinalizadas = () => {
   const {id}=useParams()
   const [demandas, setDemandas] = useState([])
 
@@ -35,9 +34,9 @@ demandas.forEach(function(demanda) {
   return (
     <div>
       <nav>
-        <Link to={`/colaborador/${id}`}>Finalizadas</Link>
-        <Link to="/colaborador/DemandasEmAndamento">Em andamento</Link>
-        <Link to={`/colaborador/Perfil/${id}`}>Perfil</Link>
+        <Link to={`/usuario/${id}`}>Minhas Demandas</Link>
+        <Link to="/usuario/DemandasFinalizads">Demandas Finalizadas</Link>
+        <Link to={`/usuario/Perfil/${id}`}>Perfil</Link>
          <Link to="/" >Sair</Link>
       </nav>
     
@@ -47,7 +46,7 @@ demandas.forEach(function(demanda) {
         <div>
           <p>Esta são todas as demandas finalizadas</p>
 
-<SearchForm searchURL={ '/demandas/search?keyword='}/>
+
           <table>
             <tr>
             

@@ -13,8 +13,8 @@ export const PerfilColaborador = () => {
     const [senha, setSenha] = useState('')
   //  const [confirmarSenha, setConfirmarSenha] = useState('')
   const [telefone,setTelefone]=useState('')
-  const [papel_id]=useState('5')
-const [usuario_id]=useState('3')
+ // const [papel_id]=useState('5')
+//const [usuario_id]=useState('3')
 const history=useNavigate()
   const getColaborador =async()=>{
     try{
@@ -30,8 +30,8 @@ console.log(error)
 const EditeUser=async(e)=>{
     e.preventDefault();
    
-    let mudarPapel=parseInt(papel_id)
-    let mudarUsuario=parseInt(usuario_id)
+    //let mudarPapel=parseInt(papel_id)
+   // let mudarUsuario=parseInt(usuario_id)
       let mudarTelefone=parseInt(telefone)
       let mudarSenha=parseInt(senha)
     const res=await axios.put(`http://localhost:81/api-demanda/usuario/edit/${id}/`,{
@@ -39,8 +39,8 @@ const EditeUser=async(e)=>{
         email:email,
         senha:mudarSenha,
          telefone:mudarTelefone,
-         usuario_id:mudarUsuario,
-         papel_id:mudarPapel
+       //  usuario_id:mudarUsuario,
+        // papel_id:mudarPapel
 
     })
     if(res.status==200){
